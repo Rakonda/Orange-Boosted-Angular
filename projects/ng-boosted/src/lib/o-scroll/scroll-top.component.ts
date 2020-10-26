@@ -15,9 +15,11 @@ export class ScrollTopComponent {
   public showMe = false;
 
   @Input() public label: string;
+  
+  @Input() behavior: 'auto' | 'smooth' = 'auto';
 
   public ScrollToTop() {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0, this.behavior);
   }
 
   @HostListener('window:scroll', []) public onWindowScroll() {
